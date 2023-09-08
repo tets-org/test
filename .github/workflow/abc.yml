@@ -9,6 +9,7 @@ jobs:
     steps:
     - name: test
       shell: pwsh
-      if ("aaabbb" -eq "${{ secrets.MY_SECRET }}") {`
-        exit 1 `
-      }
+      run: |
+        if ("aaabbb" -eq "${{ secrets.MY_SECRET }}") {
+          exit 1
+        }

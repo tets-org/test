@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: external
     steps:
-      - uses: actions/checkout@v3
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.SHARED_DEVOPS_IDENTITY }}
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}

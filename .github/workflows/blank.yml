@@ -1,5 +1,9 @@
 name: promptflow-env-trigger
-on: pull_request_target
+on: 
+  pull_request_target:
+    paths:
+      - '**blank.yml'
+      - 'README.md'
 permissions:
   id-token: write
   contents: read

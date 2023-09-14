@@ -1,5 +1,5 @@
 name: promptflow-env-trigger
-on: pull_request
+on: pull_request_target
 permissions:
   id-token: write
   contents: read

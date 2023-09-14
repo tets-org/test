@@ -11,7 +11,7 @@ jobs:
       'external' || 'internal' }}
     runs-on: ubuntu-latest
     steps:
-      - run: 1 == 1
+      - run: true
 
   test:
     needs: authorize

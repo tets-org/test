@@ -4,7 +4,17 @@ permissions:
   id-token: write
   contents: read
 jobs:
+  authorize:
+    environment:
+      ${{ github.event_name == 'pull_request_target' &&
+      github.event.pull_request.head.repo.full_name != github.repository &&
+      'external' || 'internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: 1 == 1
+
   test:
+    needs: authorize
     runs-on: ubuntu-latest
     environment: external
     steps:

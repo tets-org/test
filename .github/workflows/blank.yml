@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: external
     steps:
-      - run: exit -1
+      - run: exit -2

@@ -20,7 +20,7 @@ jobs:
         run: |
             SET-PSDEBUG -Trace 1
             $first_commit = "${{ github.sha }}"
-            $github_repository = 'microsoft/promptflow'
+            $github_repository = "microsoft/promptflow"
             $merge_commit = ""
             
             function get_diffs() {
@@ -81,7 +81,7 @@ jobs:
                     # Get pipeline status.
                     $valid_status_array = @()
 
-                    $(gh api /repos/microsoft/promptflow/commits/$merge_commit/check-suites) `
+                    $(gh api /repos/$github_repository/commits/$merge_commit/check-suites) `
                     | ConvertFrom-Json `
                     | Select-Object -ExpandProperty check_suites `
                     | ForEach-Object {
@@ -89,7 +89,7 @@ jobs:
                             Write-Output "check-suites id $($_.id)"
                         }
                         $suite_id = $_.id
-                        $(gh api /repos/microsoft/promptflow/check-suites/$suite_id/check-runs) `
+                        $(gh api /repos/$github_repository/check-suites/$suite_id/check-runs) `
                         | ConvertFrom-Json `
                         | Select-Object -ExpandProperty check_runs `
                         | ForEach-Object {

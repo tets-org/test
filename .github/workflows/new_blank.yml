@@ -3,8 +3,7 @@ on:
   pull_request:
     branches: main
 permissions:
-  id-token: write
-  contents: read
+  contents: write
 
 jobs:
   job-name:  # set your job name to something nice.

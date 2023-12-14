@@ -5,7 +5,6 @@ on:
     workflows: ["promptflow-sdk-cli-test"]
     types:
       - completed
-  workflow_call:
 
 jobs:
   check_enforcer:

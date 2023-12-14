@@ -1,6 +1,6 @@
 name: promptflow-sdk-cli-test
 on: 
-  pull_request_target:
+  pull_request:
     paths:
       - '**blank.yml'
       - 'README.md'
@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     environment: external
     steps:
-      - run: exit -1
+      - run: exit -2

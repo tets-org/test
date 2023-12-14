@@ -1,7 +1,6 @@
 name: new_blank
 on: 
-  pull_request:
-    branches: [ main ]
+  push:
     
 jobs:
   job-name:  # set your job name to something nice.

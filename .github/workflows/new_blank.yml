@@ -1,4 +1,4 @@
-name: promptflow-sdk-cli-test
+name: new_blank
 on: 
   pull_request:
     branches: main
@@ -11,16 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # all branches and tags
-      - name: Set git identity
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Change blank.yml
         run: |
           echo " " >> ${{github.workspace}}/.github/workflows/blank.yml
-      - name: Push
-        run: |
-          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}
-          git push
+      - uses: EndBug/add-and-commit@v9
+        with:
+          committer_name: GitHub Actions
+          committer_email: actions@github.com
